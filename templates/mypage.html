@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Page</title>
+</head>
+<body>
+    <h1>Welcome, {{ username }}</h1>
+    <textarea rows="5" cols="40" placeholder="Your memo..."></textarea><br>
+    <button id="logout">Logout</button>
+    <script>
+    document.getElementById('logout').addEventListener('click', async () => {
+        await fetch('/logout', {method: 'POST'});
+        localStorage.removeItem('token');
+        window.location.href = '/';
+    });
+    </script>
+</body>
+</html>
